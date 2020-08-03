@@ -1,11 +1,12 @@
 import React from 'react'
+import { ContentCard, Img } from './style'
 
-const URL = 'https://pokeapi.co/api/v2/ability/65/'
+const URL = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png'
 const NAME = 'overgrow'
 export const CardPokemon = ({ url = URL, name = NAME }) => (
-  <div>
+  <ContentCard>
     <figure>
-      <img src={url} alt={name} />
+      <Img src={url} alt={name} />
     </figure>
-  </div>
+  </ContentCard>
 )
