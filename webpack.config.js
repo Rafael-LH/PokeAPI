@@ -13,7 +13,8 @@ module.exports = {
     alias: {
       "@components": path.resolve(__dirname, './src/components'),
       "@page": path.resolve(__dirname, './src/pages'),
-      "@images": path.resolve(__dirname, './src/assets/images')
+      "@images": path.resolve(__dirname, './src/assets/images'),
+      "@hooks": path.resolve(__dirname, './src/hooks'),
     }
   },
   devServer: {
@@ -21,6 +22,7 @@ module.exports = {
     contentBase: './dist',
     port: 9000
   },
+  devtool: "eval-source-map",
   module: {
     rules: [
       {
