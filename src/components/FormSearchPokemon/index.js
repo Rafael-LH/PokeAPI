@@ -2,7 +2,10 @@ import React, { useEffect, useState, useContext } from "react";
 import { getTypesPokemons } from "@hooks/getTypesPokemons";
 import { FormStyle } from "./styles";
 
-const FormSearchPokemon = ({ handlePokemonType }) => {
+import PokemonContext from "../../Context/pockemonType";
+
+const FormSearchPokemon = () => {
+  const { setPokemonType } = useContext(PokemonContext);
   const [pokemonTypes, setPokemonTypes] = useState([]);
   const [loader, setLoader] = useState(false);
 
@@ -17,7 +20,7 @@ const FormSearchPokemon = ({ handlePokemonType }) => {
   }, []);
 
   const handleChange = (e) => {
-    handlePokemonType(e.target.value);
+    setPokemonType(e.target.value);
   };
 
   return (
