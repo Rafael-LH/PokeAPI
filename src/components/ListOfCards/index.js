@@ -1,16 +1,13 @@
 import React from 'react'
 import { ContainerCards } from './style'
 import { CardPokemon } from '@components/CardPokemon'
-import { useFindPokemonType } from '@hooks/useFindPokemonType'
+import { hocPokemonType } from '../../hoc/hocPokemonType'
 
-export const ListOfCards = ({ pokemonType }) => {
-  const { getPokemonType: { pokemon } } = useFindPokemonType(pokemonType)
-
-  return (
-    <ContainerCards>
-      {
-        pokemon && pokemon.map((item, index) => <CardPokemon key={index} {...item} />)
-      }
-    </ContainerCards>
-  )
-}
+const ListOfCards = ({ pokemon }) => (
+  <ContainerCards>
+    {
+      pokemon.map((item, index) => <CardPokemon key={index} {...item} />)
+    }
+  </ContainerCards>
+)
+export default hocPokemonType(ListOfCards, "pokemons")
