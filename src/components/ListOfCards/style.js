@@ -5,4 +5,5 @@ export const ContainerCards = styled.div`
   padding: 15px;
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
 `

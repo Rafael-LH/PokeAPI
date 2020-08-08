@@ -3,7 +3,8 @@ import styled from 'styled-components'
 const SECONS = '.4s';
 
 export const ContentCard = styled.div`
-  max-width: 250px;
+  text-align: center;
+  width: 250px;
   box-shadow: -1px -1px 10px 0px rgba(0,0,0,0.75);
   padding: 10px;
   border-radius: 5px;
@@ -13,7 +14,7 @@ export const ContentCard = styled.div`
   transition: ease ${SECONS};
   :hover{
     transition: ease ${SECONS};
-    transform: scale(1.2);
+    transform: scale(1.1);
   }
 `
 export const Img = styled.img`
