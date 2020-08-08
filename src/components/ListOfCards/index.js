@@ -1,13 +1,15 @@
-import React from 'react'
-import { ContainerCards } from './style'
-import { CardPokemon } from '@components/CardPokemon'
-import { hocPokemonType } from '../../hoc/hocPokemonType'
+import React from "react";
+import { ContainerCards } from "./style";
+import CardPokemon from "@components/CardPokemon";
+import PokemonType from "../../hoc/hocPokemonType";
+import Loader from "../../hoc/LoaderHoc";
 
 const ListOfCards = ({ pokemon }) => (
   <ContainerCards>
-    {
-      pokemon.map((item, index) => <CardPokemon key={index} {...item} />)
-    }
+    {pokemon.map((item, index) => (
+      <CardPokemon key={index} {...item} />
+    ))}
   </ContainerCards>
-)
-export default hocPokemonType(ListOfCards, "pokemons")
+);
+
+export default PokemonType(Loader("pokemon")(ListOfCards));
