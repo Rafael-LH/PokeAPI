@@ -1,10 +1,30 @@
-import React from 'react'
-import { useFindPokemonType } from '@hooks/useFindPokemonType'
+import React, { useState } from "react";
+import { useFindPokemonType } from "@hooks/useFindPokemonType";
 
-export const hocPokemonType = (Component, request) => {
-  return function (props) {
-    const { getPokemonType: { pokemon } } = useFindPokemonType('https://pokeapi.co/api/v2/type/3')
-    if (!pokemon) return <h1>Loader...</h1>
-    return <Component {...props} pokemon={pokemon} />
-  }
-}
+const hocPokemonType = (Component) => {
+  const pokemon = (props) => {
+    const [pokemonType, setPokemonType] = useState(
+      "https://pokeapi.co/api/v2/type/3"
+    );
+
+    const {
+      getPokemonType: { pokemon },
+    } = useFindPokemonType(pokemonType);
+
+    const handlePokemonType = (type) => setPokemonType(type);
+
+    return (
+      <Component
+        {...props}
+        pokemon={pokemon}
+        handlePokemonType={handlePokemonType}
+        pokemonType={pokemonType}
+      />
+    );
+  };
+
+  pokemon.displayName = "<PokemonType>";
+  return pokemon;
+};
+
+export default hocPokemonType;

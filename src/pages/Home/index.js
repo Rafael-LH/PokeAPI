@@ -1,13 +1,18 @@
-import React, { useState } from 'react'
-import ListOfCards from '@components/ListOfCards'
-import { FormSearchPokemon } from '@components/FormSearchPokemon'
+import React from "react";
+import ListOfCards from "@components/ListOfCards";
+import FormSearchPokemon from "@components/FormSearchPokemon";
 
-export const Home = () => {
-  const [pokemonType, setPokemonType] = useState('https://pokeapi.co/api/v2/type/3')
+import PokemonType from "../../hoc/hocPokemonType";
+
+const Home = (props) => {
+  const { pokemonTypes, handlePokemonType } = props;
+
   return (
     <>
-      <FormSearchPokemon setPokemonType={setPokemonType} />
-      <ListOfCards pokemonType={pokemonType} />
+      <FormSearchPokemon handlePokemonType={handlePokemonType} />
+      <ListOfCards pokemonType={pokemonTypes} />
     </>
-  )
-}
+  );
+};
+
+export default PokemonType(Home);
