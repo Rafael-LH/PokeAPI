@@ -1,18 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import ListOfCards from "@components/ListOfCards";
 import FormSearchPokemon from "@components/FormSearchPokemon";
 
-import PokemonType from "../../hoc/hocPokemonType";
+import PokemonContext from '../../Context/pockemonType'
 
-const Home = (props) => {
-  const { pokemonTypes, handlePokemonType } = props;
-
+const Home = () => {
+  const { pokemonTypes } = useContext(PokemonContext)
   return (
     <>
-      <FormSearchPokemon handlePokemonType={handlePokemonType} />
+      <FormSearchPokemon />
       <ListOfCards pokemonType={pokemonTypes} />
     </>
   );
 };
 
-export default PokemonType(Home);
+export default Home;
