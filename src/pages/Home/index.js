@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import ListOfCards from "@components/ListOfCards";
 import FormSearchPokemon from "@components/FormSearchPokemon";
-
 import PokemonContext from '../../Context/pockemonType'
 
 const Home = () => {
@@ -9,7 +8,7 @@ const Home = () => {
   return (
     <>
       <FormSearchPokemon />
-      <ListOfCards pokemonType={pokemonTypes} />
+      <ListOfCards pokemonTypes={pokemonTypes} />
     </>
   );
 };

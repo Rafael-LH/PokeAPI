@@ -3,13 +3,11 @@ import { useFindPokemonType } from "@hooks/useFindPokemonType";
 
 const hocPokemonType = (Component) => {
   const pokemon = (props) => {
-    const [pokemonType, setPokemonType] = useState(
-      "https://pokeapi.co/api/v2/type/3"
-    );
-
+    window.localStorage.setItem('lastPokemonType', props.pokemonTypes)
+    const [pokemonType, setPokemonType] = useState(props.pokemonTypes);
     const {
       getPokemonType: { pokemon },
-    } = useFindPokemonType(pokemonType);
+    } = useFindPokemonType(props.pokemonTypes);
 
     const handlePokemonType = (type) => setPokemonType(type);
 

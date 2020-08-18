@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 const LoaderHoc = (propName) => (Component) => {
   const loader = (props) => {
@@ -11,8 +11,8 @@ const LoaderHoc = (propName) => (Component) => {
     return isEmpty(props[propName]) ? (
       <h1>Loading</h1>
     ) : (
-      <Component {...props} />
-    );
+        <Component {...props} />
+      );
   };
 
   loader.displayName = "<Loader>"; // Assing a named component
